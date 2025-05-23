@@ -38,3 +38,10 @@ Sparta_Dungeon_DY 게임은 내일 배움 캠프 9기 Unity 게임개발 숙련�
 
 <table>
   <tr>
+
+
+
+
+점프대를 이용해 바위에서 광경을 보면 재미있습니다. 
+   
+![image](https://github.com/user-attachments/assets/b1e1d9fa-6638-4eac-b2c9-45c94c78a0c0)
