@@ -84,7 +84,7 @@ public class UIIventory : MonoBehaviour
     {
         ItemData data = CharacterManager.Instance.Player.itemData;
 
-        //¾ÆÀÌÅÛÀÌ Áßº¹ °¡´ÉÇÑÁö canStack
+        //ì•„ì´í…œì´ ì¤‘ë³µ ê°€ëŠ¥í•œì§€ canStack
         if (data.canStack)
         {
             ItemSlot slot = GetItemStack(data);
@@ -96,10 +96,10 @@ public class UIIventory : MonoBehaviour
                 return;
             }
         }
-        // ºñ¾îÀÖ´Â ½½·ÔÀ» °¡Á®¿Â´Ù
+        // ë¹„ì–´ìˆëŠ” ìŠ¬ë¡¯ì„ ê°€ì ¸ì˜¨ë‹¤
         ItemSlot emptySlot = GetEmptySlot();
 
-        // ÀÖ´Ù¸é
+        // ìˆë‹¤ë©´
         if (emptySlot != null)
         {
             emptySlot.item = data;
@@ -109,7 +109,7 @@ public class UIIventory : MonoBehaviour
             return;
         }
 
-        //¾ø´Ù¸é
+        //ì—†ë‹¤ë©´
         ThrowItem(data);
 
         CharacterManager.Instance.Player.itemData = null;
@@ -197,6 +197,9 @@ public class UIIventory : MonoBehaviour
                         break;
                     case ConsumableType.Hunger:
                         condition.Eat(selectedItem.consumables[i].value);
+                        break;
+                    case ConsumableType.Speed:
+                        condition.Drink(selectedItem.consumables[i].value);
                         break;
                 }
             }
