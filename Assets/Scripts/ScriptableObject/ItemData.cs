@@ -4,15 +4,16 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Equipable,
-    Consumable,
-    Resource
+    Equipable,//장비
+    Consumable,//소모품
+    Resource //단순 자원
 }
 
 public enum ConsumableType
 {
     Health,
-    Hunger
+    Hunger,
+    Speed
 }
 
 [System.Serializable]
@@ -43,8 +44,4 @@ public class ItemData : ScriptableObject
 
     [Header("Equip")]
     public GameObject equipPrefab;
-
-
-
-
 }
