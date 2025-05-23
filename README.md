@@ -1,5 +1,6 @@
 # Sparta_Dungeon_DY
 
+<table>
 1️⃣ 게임 설명
 Sparta_Dungeon_DY 게임은 내일 배움 캠프 9기 Unity 게임개발 숙련주차 개인 과제입니다.  내일 배움 캠프 9기 Unity 게임 개발 숙련 강의에서 나온 3D Surviver에서 점프대 및 섭취시 스피드가 올라가는 사과를 추가하였습니다. 
 
@@ -16,10 +17,8 @@ Sparta_Dungeon_DY 게임은 내일 배움 캠프 9기 Unity 게임개발 숙련�
 - 점프: Space Bar
 - 아이템 취득: E Key
 - 인벤토리: Tap Key
+</table>
 
-<table>
-    <tr>
----
 # 진행상황
 아래는 구현 완료한 항목입니다. 
 
