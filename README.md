@@ -19,6 +19,7 @@ Sparta_Dungeon_DY 게임은 내일 배움 캠프 9기 Unity 게임개발 숙련�
 
 <table>
     <tr>
+---
 # 진행상황
 아래는 구현 완료한 항목입니다. 
 
