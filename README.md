@@ -18,6 +18,7 @@ Sparta_Dungeon_DY 게임은 내일 배움 캠프 9기 Unity 게임개발 숙련�
 - 인벤토리: Tap Key
 
 <table>
+    <tr>
 # 진행상황
 아래는 구현 완료한 항목입니다. 
 
@@ -33,3 +34,4 @@ Sparta_Dungeon_DY 게임은 내일 배움 캠프 9기 Unity 게임개발 숙련�
 - 이동속도 증가 아이템 (사과)
 
 <table>
+  <tr>
