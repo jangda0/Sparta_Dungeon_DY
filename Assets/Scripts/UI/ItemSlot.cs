@@ -33,8 +33,9 @@ public class ItemSlot : MonoBehaviour
         icon.gameObject.SetActive(true);
         icon.sprite = item.icon;
         quatityText.text = quantity > 1 ? quantity.ToString() : string.Empty;
+        //equipText.tect = equipped ? "Equipped" : "Equip";
 
-        if (outline != null)//¹æ¾îÄÚµå
+        if (outline != null)//ë°©ì–´ì½”ë“œ
         {
             outline.enabled = equipped;
         }

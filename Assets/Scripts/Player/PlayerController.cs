@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 mouseDelta;
     public bool canLook = true;
 
-    public Action inventory;
+    //public Action inventory;
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()//Update¿¡ È£ÃâÇØµµ Å« ¹®Á¦´Â ¾øÁö¸¸, Rigidbody¿Í °°Àº ¹°¸® ÀÛ¿ëÀ» ÇÏ´Â ¸Ş¼­µå´Â FixedUpdate¿¡¼­ ÇÏ´Â °Ô ÁÁ´Ù. 
+    void FixedUpdate()//Updateì— í˜¸ì¶œí•´ë„ í° ë¬¸ì œëŠ” ì—†ì§€ë§Œ, Rigidbodyì™€ ê°™ì€ ë¬¼ë¦¬ ì‘ìš©ì„ í•˜ëŠ” ë©”ì„œë“œëŠ” FixedUpdateì—ì„œ í•˜ëŠ” ê²Œ ì¢‹ë‹¤. 
     {
         Move();
     }
@@ -54,21 +54,21 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
         dir *= moveSpeed;
-        dir.y = _rigidbody.velocity.y; //Á¡ÇÁ¸¦ ÇßÀ»¶§¸¸ À§ ¾Æ·¡·Î ¿òÁ÷¿©¾ßÇÏ±â ¶§¹®¿¡ ³Ö¾îÁÜ. 
+        dir.y = _rigidbody.velocity.y; //ì í”„ë¥¼ í–ˆì„ë•Œë§Œ ìœ„ ì•„ë˜ë¡œ ì›€ì§ì—¬ì•¼í•˜ê¸° ë•Œë¬¸ì— ë„£ì–´ì¤Œ. 
 
         _rigidbody.velocity = dir;
     }
 
     void CameraLook()
     {
-        //¸¶¿ì½º¸¦ ÁÂ¿ì·Î ¿òÁ÷ÀÌ¸é mouseDeltaÀÇ x°ªÀÌ ¿òÁ÷ÀÓ. 
-        //Ä³¸¯ÅÍÀÇ x°ªÀ» ¿òÁ÷ÀÌ·Á¸é, yÃàÀ» È¸Àü½ÃÄÑÁà¾ßÇÔÀ¸·Î, ½ÇÁ¦·Î ¹Ş´Â °ªÀ» x°ªÀº y¿¡ ³Ö¾îÁÖ°í, y°ªÀº x¿¡ ³Ö¾îÁà¾ß ¿ì¸®°¡ ¿øÇÏ´Â È¿°ú¸¦ ³¾ ¼ö ÀÖ´Ù. 
+        //ë§ˆìš°ìŠ¤ë¥¼ ì¢Œìš°ë¡œ ì›€ì§ì´ë©´ mouseDeltaì˜ xê°’ì´ ì›€ì§ì„. 
+        //ìºë¦­í„°ì˜ xê°’ì„ ì›€ì§ì´ë ¤ë©´, yì¶•ì„ íšŒì „ì‹œì¼œì¤˜ì•¼í•¨ìœ¼ë¡œ, ì‹¤ì œë¡œ ë°›ëŠ” ê°’ì„ xê°’ì€ yì— ë„£ì–´ì£¼ê³ , yê°’ì€ xì— ë„£ì–´ì¤˜ì•¼ ìš°ë¦¬ê°€ ì›í•˜ëŠ” íš¨ê³¼ë¥¼ ë‚¼ ìˆ˜ ìˆë‹¤. 
         camCurXRot += mouseDelta.y * lookSensitivity;
         camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
         cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
-        //camCurXRot ¾Õ¿¡ -¸¦ ³Ö¾îÁØ ÀÌÀ¯´Â rotation x°¡ ¸¶ÀÌ³Ê½ºÀÏ¶© À§¸¦ º¸°í, ÇÃ·¯½ºÀÏ¶© ¾Æ·¡¸¦ º¸±â ¶§¹®¿¡ ºÎÈ£¸¦ ¹Ù²ãÁÜ. °ª°ú º¸ÀÌ´Â °ªÀº ¹İ´ë·Î ÀÛµ¿ÇÔ. 
+        //camCurXRot ì•ì— -ë¥¼ ë„£ì–´ì¤€ ì´ìœ ëŠ” rotation xê°€ ë§ˆì´ë„ˆìŠ¤ì¼ë• ìœ„ë¥¼ ë³´ê³ , í”ŒëŸ¬ìŠ¤ì¼ë• ì•„ë˜ë¥¼ ë³´ê¸° ë•Œë¬¸ì— ë¶€í˜¸ë¥¼ ë°”ê¿”ì¤Œ. ê°’ê³¼ ë³´ì´ëŠ” ê°’ì€ ë°˜ëŒ€ë¡œ ì‘ë™í•¨. 
 
-        //mouseDelta.x ¿¡ ¹Î°¨µµ¸¦ °öÇÑ ÈÄ y°ª¿¡ ³Ö¾îÁÜ. 
+        //mouseDelta.x ì— ë¯¼ê°ë„ë¥¼ ê³±í•œ í›„ yê°’ì— ë„£ì–´ì¤Œ. 
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
     }
 
@@ -121,15 +121,25 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            inventory?.Invoke();
-            ToggleCursor();
+            ////inventory?.Invoke();
+            //UIManager.instance.ChangeUI(UIState.Inventory);
+            //ToggleCursor();UI
+            // í˜„ì¬ UIê°€ ì¸ë²¤í† ë¦¬ë©´ ë‹«ê³ , ì•„ë‹ˆë©´ ì—´ê¸°
+            if (UIManager.instance.currentUIState == UIState.Inventory)
+            {
+                UIManager.instance.ChangeUI(UIState.InGame); // ì¸ë²¤í† ë¦¬ ë‹«ê¸°
+            }
+            else
+            {
+                UIManager.instance.ChangeUI(UIState.Inventory); // ì¸ë²¤í† ë¦¬ ì—´ê¸°
+            }
         }
     }    
 
-    void ToggleCursor()
-    {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-        canLook = !toggle; 
-    }
+    //void ToggleCursor()
+    //{
+    //    bool toggle = Cursor.lockState == CursorLockMode.Locked;
+    //    Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+    //    canLook = !toggle; 
+    //}
 }

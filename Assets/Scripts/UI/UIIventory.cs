@@ -1,8 +1,10 @@
 using TMPro;
 using UnityEngine;
 
-public class UIIventory : MonoBehaviour
+public class UIIventory : MonoBehaviour, IUIHandler
 {
+    public UIState State => UIState.Inventory;
+
     public ItemSlot[] slots;
 
     public GameObject inventoryWindow;
@@ -27,6 +29,8 @@ public class UIIventory : MonoBehaviour
 
     int curEquipIndex;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +38,10 @@ public class UIIventory : MonoBehaviour
         condition = CharacterManager.Instance.Player.condition;
         dropPosition = CharacterManager.Instance.Player.dropPosition;
 
-        controller.inventory += Toggle;
+        //controller.inventory += Toggle;
         CharacterManager.Instance.Player.addItem += AddItem;
 
-        inventoryWindow.SetActive(false);
+        //inventoryWindow.SetActive(false);
         slots = new ItemSlot[slotPanel.childCount];
 
         for (int i = 0; i < slotPanel.childCount; i++)
@@ -63,25 +67,44 @@ public class UIIventory : MonoBehaviour
         dropButton.SetActive(false);
     }
 
-    public void Toggle()
+
+    //public void Toggle()
+    //{
+    //    Debug.Log("호출은 되니? ");
+
+    //    if (inventoryWindow.activeInHierarchy) Close();
+    //    else Open();
+    //}
+
+    public void Open()
     {
-        if (IsOpen())
-        {
-            inventoryWindow.SetActive(false);
-        }
-        else
-        {
-            inventoryWindow.SetActive(true);
-        }
+        Debug.Log("인벤토리가 열렸다");
+        gameObject.SetActive(true); // 보이기
+        SetCursorVisible(true);     // 커서 보이기
     }
 
-    public bool IsOpen()
+    public void Close()
     {
-        return inventoryWindow.activeInHierarchy;
+        Debug.Log("인벤토리가 꺼졌다");
+        gameObject.SetActive(false); // 숨기기
+        SetCursorVisible(false);     // 커서 숨기기
+    }
+
+    private void SetCursorVisible(bool visible)
+    {
+        Cursor.lockState = visible ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = visible;
+
+        // 시점 회전 허용 여부 (PlayerController 연결)
+        if (controller != null)
+        {
+            controller.canLook = !visible;
+        }
     }
 
     void AddItem()
     {
+        Debug.Log("아이템 들어왔니? ");
         ItemData data = CharacterManager.Instance.Player.itemData;
 
         //아이템이 중복 가능한지 canStack
@@ -91,7 +114,7 @@ public class UIIventory : MonoBehaviour
             if (slot != null)
             {
                 slot.quantity++;
-                //UIUpdate
+                //UpdateUI();
                 CharacterManager.Instance.Player.itemData = null;
                 return;
             }
@@ -212,6 +235,11 @@ public class UIIventory : MonoBehaviour
         ThrowItem(selectedItem);
         RemoveSelctedItem();
         UpdateUI();
+    }
+
+    public void OnClickExitButton()
+    {
+        Close();
     }
 
     void RemoveSelctedItem()
