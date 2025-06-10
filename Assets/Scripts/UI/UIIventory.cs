@@ -30,7 +30,6 @@ public class UIIventory : MonoBehaviour, IUIHandler
     int curEquipIndex;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +51,7 @@ public class UIIventory : MonoBehaviour, IUIHandler
             //slots[i].Clear();
         }
         ClearSelectedItemWindow();
+        UpdateUI();
     }
 
     void ClearSelectedItemWindow()
@@ -66,7 +66,6 @@ public class UIIventory : MonoBehaviour, IUIHandler
         unequipButton.SetActive(false);
         dropButton.SetActive(false);
     }
-
 
     //public void Toggle()
     //{
@@ -239,7 +238,7 @@ public class UIIventory : MonoBehaviour, IUIHandler
 
     public void OnClickExitButton()
     {
-        Close();
+        UIManager.instance.ChangeUI(UIState.InGame);
     }
 
     void RemoveSelctedItem()

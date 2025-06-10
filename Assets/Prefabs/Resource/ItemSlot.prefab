@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: E
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d411b183f6fba5f4fac71c5c122e420e, type: 2}
   m_sharedMaterial: {fileID: -993381840518511084, guid: d411b183f6fba5f4fac71c5c122e420e, type: 2}
@@ -511,7 +511,8 @@ MonoBehaviour:
   inventory: {fileID: 0}
   button: {fileID: 7200752729791581812}
   icon: {fileID: 2982425994324286192}
-  quatityText: {fileID: 2039470773375310697}
+  quantityText: {fileID: 2039470773375310697}
+  equipText: {fileID: 2349755062351479427}
   index: 0
   equipped: 0
   quantity: 0
