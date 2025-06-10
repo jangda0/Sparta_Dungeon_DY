@@ -375,7 +375,7 @@ MonoBehaviour:
   item: {fileID: 0}
   inventory: {fileID: 0}
   button: {fileID: 7200752729791581812}
-  icon: {fileID: 2982425994324286192}
+  icon: {fileID: 0}
   quatityText: {fileID: 2039470773375310697}
   index: 0
   equipped: 0

@@ -46,9 +46,14 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         hunger.Add(value);
     }
 
+    public void Drink(float value)
+    {
+        CharacterManager.Instance.Player.controller.moveSpeed += value;
+    }
+
     public void Die()
     {
-        Debug.Log("Á×¾ú´Ù");
+        Debug.Log("ì£½ì—ˆë‹¤");
     }
 
     public void TakePhysicalDamage(int damage)
