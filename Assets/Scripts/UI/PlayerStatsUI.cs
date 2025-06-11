@@ -10,7 +10,6 @@ public class PlayerStatsUI : MonoBehaviour, IUIHandler
     public TextMeshProUGUI playerNameText;
     public TextMeshProUGUI PlayerLevelText;
     public TextMeshProUGUI ExpText;
-    public TextMeshProUGUI AttackDamageText;
     public TextMeshProUGUI jumpText;
     public TextMeshProUGUI goldText;
 
@@ -21,7 +20,6 @@ public class PlayerStatsUI : MonoBehaviour, IUIHandler
         controller = CharacterManager.Instance.Player.controller;
         condition = CharacterManager.Instance.Player.condition;
 
-
         UpdateStatusUI();
     }
 
@@ -31,7 +29,7 @@ public class PlayerStatsUI : MonoBehaviour, IUIHandler
 
         playerNameText.text = $"{player.controller.playerName}";
         PlayerLevelText.text = $"{player.controller.playerLevel}";
-        ExpText.text = $"{player.controller.exp}"; 
+        ExpText.text = $"{player.controller.exp}";
         jumpText.text = $"{player.controller.jumpPower}";
         goldText.text = $"{player.controller.gold}";
     }
