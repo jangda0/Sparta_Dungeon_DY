@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
-public class PlayerStatsUI : MonoBehaviour, IUIHandler
+public class MenuUI : MonoBehaviour, IUIHandler
 {
-    public UIState State => UIState.Stat;
+    public UIState State => UIState.Menu;
 
     private PlayerController controller;
     private PlayerCondition condition;
@@ -15,7 +15,6 @@ public class PlayerStatsUI : MonoBehaviour, IUIHandler
         controller = CharacterManager.Instance.Player.controller;
         condition = CharacterManager.Instance.Player.condition;
     }
-
     public void Open()
     {
         gameObject.SetActive(true); // 보이기
@@ -43,7 +42,7 @@ public class PlayerStatsUI : MonoBehaviour, IUIHandler
 
     public void OnClickOpenButton()
     {
-        UIManager.instance.ChangeUI(UIState.Stat);
+        UIManager.instance.ChangeUI(UIState.Menu);
     }
 
     public void OnClickExitButton()

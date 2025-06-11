@@ -121,9 +121,6 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            ////inventory?.Invoke();
-            //UIManager.instance.ChangeUI(UIState.Inventory);
-            //ToggleCursor();UI
             // 현재 UI가 인벤토리면 닫고, 아니면 열기
             if (UIManager.instance.currentUIState == UIState.Inventory)
             {
@@ -134,12 +131,37 @@ public class PlayerController : MonoBehaviour
                 UIManager.instance.ChangeUI(UIState.Inventory); // 인벤토리 열기
             }
         }
-    }    
+    }
 
-    //void ToggleCursor()
-    //{
-    //    bool toggle = Cursor.lockState == CursorLockMode.Locked;
-    //    Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-    //    canLook = !toggle; 
-    //}
+    public void OnStatsButton(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            // 현재 UI가 인벤토리면 닫고, 아니면 열기
+            if (UIManager.instance.currentUIState == UIState.Stat)
+            {
+                UIManager.instance.ChangeUI(UIState.InGame); // 인벤토리 닫기
+            }
+            else
+            {
+                UIManager.instance.ChangeUI(UIState.Stat); // 인벤토리 열기
+            }
+        }
+    }
+
+    public void OnMenuButton(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            // 현재 UI가 인벤토리면 닫고, 아니면 열기
+            if (UIManager.instance.currentUIState == UIState.Menu)
+            {
+                UIManager.instance.ChangeUI(UIState.InGame); // 인벤토리 닫기
+            }
+            else
+            {
+                UIManager.instance.ChangeUI(UIState.Menu); // 인벤토리 열기
+            }
+        }
+    }
 }

@@ -16,7 +16,7 @@ public enum UIState
     Main,
     Stat,
     Inventory,
-    Paused
+    Menu
 
 }
 

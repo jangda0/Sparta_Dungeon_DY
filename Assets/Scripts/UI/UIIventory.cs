@@ -29,7 +29,6 @@ public class UIIventory : MonoBehaviour, IUIHandler
 
     int curEquipIndex;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,10 +36,8 @@ public class UIIventory : MonoBehaviour, IUIHandler
         condition = CharacterManager.Instance.Player.condition;
         dropPosition = CharacterManager.Instance.Player.dropPosition;
 
-        //controller.inventory += Toggle;
         CharacterManager.Instance.Player.addItem += AddItem;
 
-        //inventoryWindow.SetActive(false);
         slots = new ItemSlot[slotPanel.childCount];
 
         for (int i = 0; i < slotPanel.childCount; i++)
@@ -67,26 +64,18 @@ public class UIIventory : MonoBehaviour, IUIHandler
         dropButton.SetActive(false);
     }
 
-    //public void Toggle()
-    //{
-    //    Debug.Log("호출은 되니? ");
-
-    //    if (inventoryWindow.activeInHierarchy) Close();
-    //    else Open();
-    //}
-
     public void Open()
     {
         Debug.Log("인벤토리가 열렸다");
-        gameObject.SetActive(true); // 보이기
-        SetCursorVisible(true);     // 커서 보이기
+        gameObject.SetActive(true); //UI 활성화
+        SetCursorVisible(true);    
     }
 
     public void Close()
     {
         Debug.Log("인벤토리가 꺼졌다");
-        gameObject.SetActive(false); // 숨기기
-        SetCursorVisible(false);     // 커서 숨기기
+        gameObject.SetActive(false); //UI 비활성화
+        SetCursorVisible(false);    
     }
 
     private void SetCursorVisible(bool visible)
@@ -236,6 +225,11 @@ public class UIIventory : MonoBehaviour, IUIHandler
         UpdateUI();
     }
 
+    public void OnClickOpenButton()
+    {
+        UIManager.instance.ChangeUI(UIState.Inventory);
+    }
+
     public void OnClickExitButton()
     {
         UIManager.instance.ChangeUI(UIState.InGame);
@@ -288,9 +282,4 @@ public class UIIventory : MonoBehaviour, IUIHandler
     {
         UnEquip(selectedItemIndex);
     }
-
-    //public bool HasItem(ItemData item, int quantity)
-    //{
-    //    return false;
-    //}
 }
