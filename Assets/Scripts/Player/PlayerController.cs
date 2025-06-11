@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     public float jumpPower;
     private Vector2 curMovementInput;
     public LayerMask groundLayerMask;
+    public string playerName;
+    public int playerLevel;
+    public int exp;
+    public int gold;
 
     [Header("Look")]
     public Transform cameraContainer;

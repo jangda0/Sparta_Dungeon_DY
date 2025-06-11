@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
 public class PlayerStatsUI : MonoBehaviour, IUIHandler
 {
@@ -9,11 +7,33 @@ public class PlayerStatsUI : MonoBehaviour, IUIHandler
 
     private PlayerController controller;
     private PlayerCondition condition;
+    public TextMeshProUGUI playerNameText;
+    public TextMeshProUGUI PlayerLevelText;
+    public TextMeshProUGUI ExpText;
+    public TextMeshProUGUI AttackDamageText;
+    public TextMeshProUGUI jumpText;
+    public TextMeshProUGUI goldText;
+
+    public Player player;
 
     void Start()
     {
         controller = CharacterManager.Instance.Player.controller;
         condition = CharacterManager.Instance.Player.condition;
+
+
+        UpdateStatusUI();
+    }
+
+    public void UpdateStatusUI()
+    {
+        if (player == null) return;
+
+        playerNameText.text = $"{player.controller.playerName}";
+        PlayerLevelText.text = $"{player.controller.playerLevel}";
+        ExpText.text = $"{player.controller.exp}"; 
+        jumpText.text = $"{player.controller.jumpPower}";
+        goldText.text = $"{player.controller.gold}";
     }
 
     public void Open()
