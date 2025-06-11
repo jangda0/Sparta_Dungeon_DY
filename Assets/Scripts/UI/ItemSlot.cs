@@ -9,7 +9,8 @@ public class ItemSlot : MonoBehaviour
     public UIIventory inventory;
     public Button button;
     public Image icon;
-    public TextMeshProUGUI quatityText;
+    public TextMeshProUGUI quantityText;
+    public TextMeshProUGUI equipText;
     private Outline outline;
 
     public int index;
@@ -32,9 +33,10 @@ public class ItemSlot : MonoBehaviour
     {
         icon.gameObject.SetActive(true);
         icon.sprite = item.icon;
-        quatityText.text = quantity > 1 ? quantity.ToString() : string.Empty;
+        quantityText.text = quantity > 1 ? quantity.ToString() : string.Empty;
+        equipText.text = equipped ? "E" : string.Empty;
 
-        if (outline != null)//¹æ¾îÄÚµå
+        if (outline != null)//ë°©ì–´ì½”ë“œ
         {
             outline.enabled = equipped;
         }
@@ -44,7 +46,7 @@ public class ItemSlot : MonoBehaviour
     {
         item = null;
         icon.gameObject.SetActive(false);
-        quatityText.text = string.Empty;
+        quantityText.text = string.Empty;
     }
 
     public void OnClickButton()

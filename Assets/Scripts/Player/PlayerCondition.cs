@@ -18,7 +18,6 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public float noHUngerHealthDecay;
     public event Action onTakeDamage;
 
-
     // Update is called once per frame
     private void Update()
     {

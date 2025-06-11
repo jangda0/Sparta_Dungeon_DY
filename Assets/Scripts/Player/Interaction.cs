@@ -15,9 +15,6 @@ public class Interaction : MonoBehaviour
     public TextMeshProUGUI promptText;
     private Camera camera;
 
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +29,7 @@ public class Interaction : MonoBehaviour
         {
             lastCheckTime = Time.time;
 
-            //ScreenToViewportPoint´Â ÅÍÄ¡ÇÑ ±âÁØ. ScreenPointToRay´Â Ä«¸Ş¶ó ±âÁØÀ¸·Î Ray ÀÛµ¿. 
+            //ScreenToViewportPointëŠ” í„°ì¹˜í•œ ê¸°ì¤€. ScreenPointToRayëŠ” ì¹´ë©”ë¼ ê¸°ì¤€ìœ¼ë¡œ Ray ì‘ë™. 
             Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
             RaycastHit hit;
 

@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        //¿ÜºÎ¿¡¼­ ÇÃ·¹ÀÌ¾î Á¤º¸¿¡ Á¢±ÙÇÏ°í ½ÍÀ» ¶§, ÇÃ·¹ÀÌ¾î ½ºÅ©¸³Æ®¸¦ ÅëÇØ Á¢±ÙÇÏµµ·Ï ¼³Á¤. 
+        //ì™¸ë¶€ì—ì„œ í”Œë ˆì´ì–´ ì •ë³´ì— ì ‘ê·¼í•˜ê³  ì‹¶ì„ ë•Œ, í”Œë ˆì´ì–´ ìŠ¤í¬ë¦½íŠ¸ë¥¼ í†µí•´ ì ‘ê·¼í•˜ë„ë¡ ì„¤ì •. 
         CharacterManager.Instance.Player = this;
         controller = GetComponent<PlayerController>();
         condition = GetComponent<PlayerCondition>();
